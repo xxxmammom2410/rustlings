@@ -6,6 +6,6 @@
 fn main() {
     let mut number = "T-H-R-E-E"; // don't change this line
     println!("Spell a Number : {}", number);
-    number = 3; // don't rename this variable
+    number = 3 as i32; // don't rename this variable
     println!("Number plus two is : {}", number + 2);
 }
