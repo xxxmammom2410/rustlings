@@ -24,9 +24,21 @@ use std::num::ParseIntError;
 pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let processing_fee = 1;
     let cost_per_item = 5;
-    let qty = item_quantity.parse::<i32>();
 
-    Ok(qty * cost_per_item + processing_fee)
+
+    // // parse::<i32>()の結果で場合わけ
+    // match item_quantity.parse::<i32>() {
+    //     //int変換に成功の場合
+    //     // Ok(n) =>  Ok(item_quantity.parse::<i32>().unwrap() * cost_per_item + processing_fee), 
+    //     Ok(n) =>  Ok(n * cost_per_item + processing_fee), 
+
+    //     //int変換に失敗の場合(ParseIntError)
+    //     // Err(err) => Err(item_quantity.parse::<i32>().unwrap_err()),
+    //     Err(err) => Err(err),
+    // }
+    
+    let qty = item_quantity.parse::<i32>()?;
+    Ok(qty*cost_per_item + processing_fee)
 }
 
 #[cfg(test)]
