@@ -8,12 +8,14 @@
 
 // Execute `rustlings hint errors6` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+
 
 use std::num::ParseIntError;
 
 // This is a custom error type that we will be using in `parse_pos_nonzero()`.
 #[derive(PartialEq, Debug)]
+
+//Enumでカスタムエラーの定義
 enum ParsePosNonzeroError {
     //ユニット型でEnum定義
     Creation(CreationError),
@@ -35,6 +37,7 @@ fn parse_pos_nonzero(s: &str) -> Result<PositiveNonzeroInteger, ParsePosNonzeroE
     // TODO: change this to return an appropriate error instead of panicking
     // when `parse()` returns an error.
 
+    //個別にエラーを指定して投げる
     //parseに失敗したらクロージャーの中（ParsePosNonzeroError::from_parseint）を実行結果を返す
     let x: i64 = s.parse().map_err(ParsePosNonzeroError::from_parseint)?;
     PositiveNonzeroInteger::new(x).map_err(ParsePosNonzeroError::from_creation)
