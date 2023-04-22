@@ -3,7 +3,6 @@
 // can offer. Follow the steps to complete the exercise.
 // Execute `rustlings hint iterators2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 // Step 1.
 // Complete the `capitalize_first` function.
@@ -11,6 +10,7 @@
 pub fn capitalize_first(input: &str) -> String {
     // char型の配列にする
     let mut c = input.chars();
+    // 最初の要素で判別
     match c.next() {
         None => String::new(),
         // c.next()の値がNoneでないとき,
@@ -31,10 +31,12 @@ pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
     let mut _capitalized_words: Vec<String> = vec![];
 
     // イテレータを使って各要素にcapitalize_first()を適用
-    for word in iterable_words{
-        _capitalized_words.push(capitalize_first(word).to_string())
-    }
-
+    // for word in iterable_words{
+    //     _capitalized_words.push(capitalize_first(word).to_string())
+    // }
+    iterable_words
+    .map(|word| capitalize_first(word))
+    .for_each(|capitalizedWord| _capitalized_words.push(capitalizedWord));
     _capitalized_words
 
 }   
