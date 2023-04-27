@@ -1,7 +1,7 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+
 
 pub fn factorial(num: u64) -> u64 {
     // Complete this function to return the factorial of num
@@ -13,7 +13,26 @@ pub fn factorial(num: u64) -> u64 {
     // For an extra challenge, don't use:
     // - recursion
     // Execute `rustlings hint iterators4` for hints.
+    
+    
+
+    // match num {
+    //     0=>{1},
+    //     _ =>{factorial(num-1)*num}
+    // }
+
+  
+    // let vector: Vec<u64> = (0..num).map(|i| i).collect();
+    //     vector.iter().fold(1, |acc, &x| acc * (x + 1))
+
+    // (0..num).map(|i| i).collect::<Vec<u64>>()
+    // .iter().fold(1, |acc, &x| acc * (x + 1))
+
+    // (1..=num).fold(1, |acc, x| acc * x)
+
+    (1..=num).product()
 }
+
 
 #[cfg(test)]
 mod tests {
